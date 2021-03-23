@@ -70,6 +70,8 @@ export class SudokuSolver {
   }
 
   solve(puzzleString) {
-    
+    // Perform checks
+    const validation = this.validate(puzzleString);
+    if (!validation.valid) return {error: validation.error};
   }
 }
