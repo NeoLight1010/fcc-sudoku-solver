@@ -46,7 +46,27 @@ export class SudokuSolver {
   }
 
   checkRegionPlacement(puzzleString, row, column, value) {
+     // Find region start and end
+    let regionStart = 1, regionEnd = 1;
+    for (let i=1; i<=3; i++) {
+      regionStart *= i;
+      regionEnd *= i + 1;
 
+      if (row <= regionEnd && row >= regionStart) break;
+    }
+
+    // Get regionString
+    let regionString;
+    for (let i=1; i<=3; i++) {
+      regionString += puzzleString.substring((regionStart - 1) * i + (column - 1),
+                                              regionEnd * i + (column - 1));
+    }
+
+    // Remove selected tile
+    regionString = regionString.slice(0, 3 * (row - 1) + column) + regionString.slice(column + 1);
+
+    if (regionString.includes(value)) return {valid: false, error: REGION_CONFLICT_ERROR};
+    return {valid: true};
   }
 
   solve(puzzleString) {
