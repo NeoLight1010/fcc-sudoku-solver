@@ -35,7 +35,14 @@ export class SudokuSolver {
   }
 
   checkColPlacement(puzzleString, row, column, value) {
+    let columnString = "";
 
+    for (let i=1; i<=9; i++) {
+      if (i!=row) columnString += puzzleString[(column - 1) + 9 * i];
+    }
+
+    if (columnString.includes(value)) return {valid: false, error: COLUMN_CONFLICT_ERROR};
+    return {valid: true};
   }
 
   checkRegionPlacement(puzzleString, row, column, value) {
