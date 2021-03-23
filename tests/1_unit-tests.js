@@ -144,7 +144,7 @@ suite("UnitTests", () => {
     test('Invalid puzzle string', (done) => {
       const output = solver.solve(puzzlesAndSolutions[0][0].slice(5));
 
-      assert.exists(output.solution);
+      assert.notExists(output.solution);
       assert.equal(output.error, Solver.INVALID_LENGTH_ERROR);
       done();
     });
