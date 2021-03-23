@@ -101,7 +101,7 @@ suite("UnitTests", () => {
       );
 
       assert.isFalse(output.valid);
-      assert.equal(output.error, Solver.Col_CONFLICT_ERROR);
+      assert.equal(output.error, Solver.COLUMN_CONFLICT_ERROR);
       done();
     });
 
