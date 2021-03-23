@@ -7,7 +7,8 @@ const {
   puzzlesAndSolutions,
 } = require("../controllers/puzzle-strings");
 const { expect } = require("chai");
-const solver = new Solver();
+
+const solver = new Solver.SudokuSolver();
 
 // Logic handles a valid puzzle string of 81 characters
 // Logic handles a puzzle string with invalid characters (not 1-9 or .)

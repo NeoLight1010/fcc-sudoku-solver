@@ -4,7 +4,7 @@ const SudokuSolver = require('../controllers/sudoku-solver.js');
 
 module.exports = function (app) {
   
-  let solver = new SudokuSolver();
+  let solver = new SudokuSolver.SudokuSolver();
 
   app.route('/api/check')
     .post((req, res) => {
