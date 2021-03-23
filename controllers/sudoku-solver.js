@@ -19,7 +19,19 @@ export class SudokuSolver {
   }
 
   checkRowPlacement(puzzleString, row, column, value) {
+    // Find row start and end
+    let rowStart = 1, rowEnd = 1;
+    for (let i=1; i<=9; i++) {
+      rowStart *= i;
+      rowEnd *= i + 1;
 
+      if (row <= rowEnd && row >= rowStart) break
+    }
+
+    let rowString = puzzleString.slice(rowStart - 1, column - 1) + puzzleString.slice(column, rowEnd);
+
+    if ((rowString.includes)(value)) return {valid: false, error: ROW_CONFLICT_ERROR};
+    return {valid: true};
   }
 
   checkColPlacement(puzzleString, row, column, value) {
