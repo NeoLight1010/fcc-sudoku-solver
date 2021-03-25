@@ -1,3 +1,4 @@
+export const MISSING_PUZZLE_ERROR = "Required field missing";
 export const INVALID_CHAR_ERROR = "Invalid characters in puzzle";
 export const INVALID_LENGTH_ERROR =  "Expected puzzle to be 81 characters long";
 export const CANNOT_SOLVE_ERROR = "Puzzle cannot be solved";
@@ -9,6 +10,8 @@ export const REGION_CONFLICT_ERROR = "Region conflict found";
 export class SudokuSolver {
 
   validate(puzzleString) {
+    if (!puzzleString) return {valid: false, error: MISSING_PUZZLE_ERROR};
+
     // Check length
     if (puzzleString.length != 81) return {valid: false, error: INVALID_LENGTH_ERROR};
 
