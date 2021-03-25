@@ -68,7 +68,7 @@ suite('Functional Tests', () => {
         .send({puzzle: '..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....5.37.4.3..6..'})
         .end((err, res) => {
           assert.equal(res.status, 200);
-          assert.equal(res.error, 'Puzzle cannot be solved';
+          assert.equal(res.error, 'Puzzle cannot be solved');
           done();
         })
     })
