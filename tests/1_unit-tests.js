@@ -134,7 +134,7 @@ suite("UnitTests", () => {
 
   suite('Solver.solve(puzzleString) tests', () => {
     test('Valid puzzle string', (done) => {
-      const output = solver.validate(puzzlesAndSolutions[0][0]);
+      const output = solver.solve(puzzlesAndSolutions[0][0]);
 
       assert.exists(output.solution);
       assert.notExists(output.error);
@@ -156,7 +156,7 @@ suite("UnitTests", () => {
       // assert.equal(output.solution, expected);
       // assert.notExists(output.error);
 
-      output = solver.solve('7692354188514963724321789561745692833958427616287135492836571945169248379473816.5');
+      output = solver.solve('7692354188514963724321789561745692833958427616287135492836571945169248379473816.5').solution;
       expected = '769235418851496372432178956174569283395842761628713549283657194516924837947381625';
       assert.equal(output, expected);
       done();
