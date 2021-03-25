@@ -24,7 +24,7 @@ suite('Functional Tests', () => {
         .send({puzzle: puzzlesAndSolutions[2][0]})
         .end((err, res) => {
           assert.equal(res.status, 200);
-          assert.equal(res.solution, puzzlesAndSolutions[2][1]);
+          assert.equal(res.body.solution, puzzlesAndSolutions[2][1]);
           done();
         })
     });
@@ -35,7 +35,7 @@ suite('Functional Tests', () => {
         .send({puzzle: ''})
         .end((err, res) => {
           assert.equal(res.status, 200);
-          assert.equal(res.error, 'Required field missing');
+          assert.equal(res.body.error, 'Required field missing');
           done();
         });
     });
@@ -46,7 +46,7 @@ suite('Functional Tests', () => {
         .send({puzzle: puzzlesAndSolutions[0][0].replace('.', '?')})
         .end((err, res) => {
           assert.equal(res.status, 200);
-          assert.equal(res.error, 'Invalid characters in puzzle');
+          assert.equal(res.body.error, 'Invalid characters in puzzle');
           done();
         });
     });
@@ -57,7 +57,7 @@ suite('Functional Tests', () => {
         .send({puzzle: puzzlesAndSolutions[0][0].slice(20)})
         .end((err, res) => {
           assert.equal(res.status, 200);
-          assert.equal(res.error, 'Expected puzzle to be 81 characters long')
+          assert.equal(res.body.error, 'Expected puzzle to be 81 characters long')
           done();
         });
     });
@@ -68,7 +68,7 @@ suite('Functional Tests', () => {
         .send({puzzle: '..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....5.37.4.3..6..'})
         .end((err, res) => {
           assert.equal(res.status, 200);
-          assert.equal(res.error, 'Puzzle cannot be solved');
+          assert.equal(res.body.error, 'Puzzle cannot be solved');
           done();
         })
     })
