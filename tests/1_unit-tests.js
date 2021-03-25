@@ -10,19 +10,6 @@ const { expect } = require("chai");
 
 const solver = new Solver.SudokuSolver();
 
-// Logic handles a valid puzzle string of 81 characters
-// Logic handles a puzzle string with invalid characters (not 1-9 or .)
-// Logic handles a puzzle string that is not 81 characters in length
-// Logic handles a valid row placement
-// Logic handles an invalid row placement
-// Logic handles a valid Col placement
-// Logic handles an invalid Col placement
-// Logic handles a valid region (3x3 grid) placement
-// Logic handles an invalid region (3x3 grid) placement
-// Valid puzzle strings pass the solver
-// Invalid puzzle strings fail the solver
-// Solver returns the the expected solution for an incomplete puzzzle
-
 suite("UnitTests", () => {
   suite("SudokuSolver.validate(puzzleString) tests", () => {
     test("Valid puzzle string of 81 characters", (done) => {
