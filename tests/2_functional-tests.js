@@ -89,7 +89,7 @@ suite('Functional Tests', () => {
         .end((err, res) => {
           assert.equal(res.status, 200);
           assert.equal(res.body.valid, false);
-          assert.equal(res.body.conflict, ['row']);
+          assert.deepEqual(res.body.conflict, ['row']);
           done();
         });
     });
@@ -104,7 +104,7 @@ suite('Functional Tests', () => {
         .end((err, res) => {
           assert.equal(res.status, 200);
           assert.equal(res.body.valid, false);
-          assert.equal(res.body.conflict, ['row', 'region']);
+          assert.deepEqual(res.body.conflict, ['row', 'region']);
           done();
         });      
     });
@@ -119,7 +119,7 @@ suite('Functional Tests', () => {
         .end((err, res) => {
           assert.equal(res.status, 200);
           assert.equal(res.body.valid, false);
-          assert.equal(res.body.conflict, ['row', 'column', 'region']);
+          assert.deepEqual(res.body.conflict, ['row', 'column', 'region']);
           done();
         });
     });
