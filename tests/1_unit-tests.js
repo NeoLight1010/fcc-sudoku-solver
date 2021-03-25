@@ -150,15 +150,11 @@ suite("UnitTests", () => {
     });
 
     test('Return correct solution', (done) => {
-      let output = solver.solve(puzzlesAndSolutions[0][0]);
-      let expected = puzzlesAndSolutions[0][1];
+      let output = solver.solve(puzzlesAndSolutions[1][0]);
+      let expected = puzzlesAndSolutions[1][1];
 
-      // assert.equal(output.solution, expected);
-      // assert.notExists(output.error);
-
-      output = solver.solve('7692354188514963724321789561745692833958427616287135492836571945169248379473816.5').solution;
-      expected = '769235418851496372432178956174569283395842761628713549283657194516924837947381625';
-      assert.equal(output, expected);
+      assert.equal(output.solution, expected);
+      assert.notExists(output.error);
       done();
     });
   });
