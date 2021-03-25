@@ -24,7 +24,7 @@ suite('Functional Tests', () => {
         .send({puzzle: puzzlesAndSolutions[2][0]})
         .end((err, res) => {
           assert.equal(res.status, 200);
-          assert.solution(res.solution, puzzlesAndSolutions[2][1]);
+          assert.equal(res.solution, puzzlesAndSolutions[2][1]);
           done();
         })
     });
