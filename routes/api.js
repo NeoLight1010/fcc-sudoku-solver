@@ -30,6 +30,19 @@ module.exports = function (app) {
 
       const solveValidation = solver.validate(puzzleString);
       if (!solveValidation.valid) return res.json({error: solveValidation.error});
+
+      // Check placement
+      const conflicts = [];
+      const colCheck = solver.checkColPlacement(puzzleString, row, column, value);
+      const rowCheck = solver.checkRowPlacement(puzzleString, row, column, value);
+      const regionCheck = solver.checkRegionPlacement(puzzleString, row, column, value);
+
+      if (!rowCheck.valid) conflicts.push('row');
+      if (!colCheck.valid) conflicts.push('column');
+      if (!regionCheck.valid) conflicts.push('region');
+
+      if (conflicts.length >= 1) return res.json({valid: false, conflict: conflicts});
+      return res.json({valid: true});
     });
     
   app.route('/api/solve')
