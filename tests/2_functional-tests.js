@@ -169,7 +169,7 @@ suite('Functional Tests', () => {
     test('Check a puzzle placement with invalid placement coordinate', (done) => {
       chai.request(server)
         .post('/api/check')
-        .send({puzzle: '..9..5.1.85.4....2432......2.71...9......1945....4.37.4.3..6..',
+        .send({puzzle: '..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..',
                coordinate: 'p',
                value: '5'
               })
@@ -183,7 +183,7 @@ suite('Functional Tests', () => {
     test('Check a puzzle placement with invalid placement value', (done) => {
       chai.request(server)
         .post('/api/check')
-        .send({puzzle: '..9..5.1.85.4....2432......2.71...9......1945....4.37.4.3..6..',
+        .send({puzzle: '..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..',
                coordinate: 'a5',
                value: 'p'
               })
