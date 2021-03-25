@@ -62,7 +62,7 @@ suite('Functional Tests', () => {
         });
     });
     
-    test('Solve a puzzle that cannot be solved', (err, res) => {
+    test('Solve a puzzle that cannot be solved', (done) => {
       chai.request(server)
         .post('/api/solve')
         .send({puzzle: '..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....5.37.4.3..6..'})
