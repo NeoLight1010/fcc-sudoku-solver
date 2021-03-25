@@ -13,6 +13,9 @@ module.exports = function (app) {
     
   app.route('/api/solve')
     .post((req, res) => {
+      const puzzleString = req.body.puzzle;
+      const output = solver.solve(puzzleString);
 
+      res.json(output);
     });
 };
